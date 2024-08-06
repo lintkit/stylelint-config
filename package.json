@@ -1,0 +1,13 @@
+{
+  "name": "@lintkit/stylelint-config",
+  "version": "0.1.0",
+  "description": "LintKit: Stylelint Config",
+  "author": "Mike Street <mike@liquidlight.co.uk>",
+  "license": "ISC",
+  "dependencies": {
+	"stylelint": "16.6.1",
+	"stylelint-config-standard-scss": "13.1.0",
+	"stylelint-scss": "6.3.0",
+	"@stylistic/stylelint-plugin": "2.1.2"
+  }
+}
