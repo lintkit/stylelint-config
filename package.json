@@ -1,6 +1,6 @@
 {
   "name": "@lintkit/stylelint-config",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "LintKit: Stylelint Config",
   "author": "Mike Street <mike@liquidlight.co.uk>",
   "homepage": "https://github.com/lintkit/stylelint-config#readme",
