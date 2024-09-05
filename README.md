@@ -19,7 +19,7 @@ Add the scripts to your `package.json`
 
 ```json
 "scripts": {
-	"lint:scss:stylelint": "stylelint app/**/*.scss --color --cache --config node_modules/@lintkit/stylelint-config/stylelint.config.mjs --ignore-path node_modules/@lintkit/stylelint-config/.stylelintignore --cache-location .cache/ --cache-strategy content",
-    "lint:scss:stylelint:fix": "npm run lint:scss:stylelint -- --fix",
+    "stylelint:dry-run": "stylelint app/**/*.scss --color --cache --config node_modules/@lintkit/stylelint-config/stylelint.config.mjs --ignore-path node_modules/@lintkit/stylelint-config/.stylelintignore --cache-location .cache/ --cache-strategy content",
+    "stylelint:fix": "npm run stylelint:dry-run -- --fix",
 }
 ```
