@@ -169,7 +169,13 @@ export default {
 			"vmin",
 			"vw",
 			"dvh",
-			"dvw"
+			"dvw",
+			"cqw",
+			"cqh",
+			"cqi",
+			"cqb",
+			"cqmin",
+			"cqmax"
 		],
 		"value-keyword-case": null,
 		"value-no-vendor-prefix": true
