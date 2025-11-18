@@ -179,5 +179,14 @@ export default {
 		],
 		"value-keyword-case": null,
 		"value-no-vendor-prefix": true
-	}
+	},
+	overrides: [
+		{
+			files: ["**/_root.scss"],
+			rules: {
+				"color-no-hex": null, // disable this rule
+				"custom-property-empty-line-before": null, // disable this rule
+			}
+		}
+	]
 };
