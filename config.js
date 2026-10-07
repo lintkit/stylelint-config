@@ -147,13 +147,7 @@ export default {
 		'scss/no-global-function-names': true,
 		'scss/selector-no-redundant-nesting-selector': true,
 		'selector-attribute-quotes': 'always',
-		'selector-class-pattern': [
-			'^(?!.*__).+$',
-			{
-				resolveNestedSelectors: true,
-				message: 'Class names can\'t use double underscores; use a hyphen instead',
-			},
-		],
+		'selector-class-pattern': null,
 		'selector-id-pattern': null,
 		'selector-max-compound-selectors': 10,
 		'selector-max-id': 3,
