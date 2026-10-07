@@ -19,7 +19,37 @@ Add the scripts to your `package.json`
 
 ```json
 "scripts": {
-    "stylelint:dry-run": "stylelint app/**/*.scss --color --cache --config node_modules/@lintkit/stylelint-config/stylelint.config.mjs --ignore-path node_modules/@lintkit/stylelint-config/.stylelintignore --cache-location .cache/ --cache-strategy content",
+    "stylelint:dry-run": "stylelint app/**/*.scss --color --cache --config node_modules/@lintkit/stylelint-config/stylelint.config.js --ignore-path node_modules/@lintkit/stylelint-config/.stylelintignore --cache-location .cache/ --cache-strategy content",
     "stylelint:fix": "npm run stylelint:dry-run -- --fix",
 }
 ```
+
+## Local Override
+
+If you need to override some of the config (but keep LintKit defaults), place a file in the root of your project `stylelint.config.js` (or `stylelint.config.mjs` if required)
+
+Update the `script` to use your local `stylelint.config.js` file instead of the LintKit one.
+
+You can then include the LintKit config and add customisations where required.
+
+```js
+import config from '@lintkit/stylelint-config/config.js';
+
+config.rules = {
+	...config.rules,
+	'color-no-hex': null,
+};
+
+config.overrides.push({
+	files: ['**/legacy/**/*.scss'],
+	rules: {
+		'max-nesting-depth': null,
+	},
+});
+
+export default config;
+```
+
+## Upgrading to v2
+
+- Any references to `node_modules/@lintkit/stylelint-config/stylelint.config.mjs` should be corrected to `node_modules/@lintkit/stylelint-config/stylelint.config.js`
