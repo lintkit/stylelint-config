@@ -1,13 +1,25 @@
 export default {
 	extends: [
 		'stylelint-config-standard-scss',
+		'stylelint-config-clean-order',
 	],
 	plugins: [
 		'@stylistic/stylelint-plugin',
+		'@double-great/stylelint-a11y',
+		'stylelint-high-performance-animation',
+		'stylelint-no-indistinguishable-colors',
+		'stylelint-plugin-defensive-css',
+		'stylelint-plugin-logical-css',
 	],
+	reportDescriptionlessDisables: true,
+	reportNeedlessDisables: true,
 	rules: {
+		'a11y/no-outline-none': true,
 		'alpha-value-notation': 'number',
-		'at-rule-disallowed-list': [],
+		'at-rule-disallowed-list': [
+			'debug',
+			'import',
+		],
 		'at-rule-empty-line-before': [
 			'always',
 			{
@@ -28,7 +40,7 @@ export default {
 			],
 		},
 		'block-no-empty': true,
-		'color-function-notation': null,
+		'color-function-notation': 'modern',
 		'color-named': [
 			'never',
 			{
@@ -60,6 +72,7 @@ export default {
 		],
 		'declaration-block-single-line-max-declarations': 1,
 		'declaration-empty-line-before': 'never',
+		'defensive-css/require-background-repeat': true,
 		'declaration-property-value-disallowed-list': {
 			'border': [
 				'none',
@@ -81,6 +94,12 @@ export default {
 		'function-url-quotes': 'always',
 		'keyframes-name-pattern': null,
 		'length-zero-no-unit': true,
+		'logical-css/require-logical-properties': [
+			true,
+			{
+				fix: true,
+			},
+		],
 		'max-nesting-depth': [
 			4,
 			{
@@ -93,6 +112,13 @@ export default {
 		],
 		'no-descending-specificity': null,
 		'no-duplicate-selectors': true,
+		'no-unknown-animations': true,
+		'plugin/no-low-performance-animation-properties': [
+			true,
+			{
+				ignore: 'paint-properties',
+			},
+		],
 		'property-no-unknown': [
 			true,
 			{
@@ -111,17 +137,23 @@ export default {
 		'scss/at-if-closing-brace-space-after': 'always-intermediate',
 		'scss/percent-placeholder-pattern': '^[a-z][a-zA-Z0-9]+$',
 		'scss/load-no-partial-leading-underscore': true,
-		'scss/at-import-partial-extension-disallowed-list': [
-			'scss',
-		],
 		'scss/at-mixin-pattern': null,
 		'scss/at-rule-no-unknown': true,
+		'scss/declaration-property-value-no-unknown': true,
 		'scss/dollar-variable-colon-space-after': 'always',
 		'scss/dollar-variable-colon-space-before': 'never',
 		'scss/dollar-variable-pattern': null,
+		'scss/load-partial-extension': 'never',
+		'scss/no-global-function-names': true,
 		'scss/selector-no-redundant-nesting-selector': true,
 		'selector-attribute-quotes': 'always',
-		'selector-class-pattern': null,
+		'selector-class-pattern': [
+			'^(?!.*__).+$',
+			{
+				resolveNestedSelectors: true,
+				message: 'Class names can\'t use double underscores; use a hyphen instead',
+			},
+		],
 		'selector-id-pattern': null,
 		'selector-max-compound-selectors': 10,
 		'selector-max-id': 3,
@@ -130,7 +162,17 @@ export default {
 		'selector-pseudo-element-colon-notation': 'double',
 		'selector-pseudo-element-no-unknown': true,
 		'shorthand-property-no-redundant-values': true,
+		'@stylistic/block-closing-brace-newline-after': [
+			'always',
+			{
+				ignoreAtRules: [
+					'if',
+					'else',
+				],
+			},
+		],
 		'@stylistic/block-opening-brace-space-before': 'always',
+		'@stylistic/color-hex-case': 'lower',
 		'@stylistic/declaration-bang-space-after': 'never',
 		'@stylistic/declaration-bang-space-before': 'always',
 		'@stylistic/declaration-block-semicolon-newline-after': 'always',
@@ -151,7 +193,7 @@ export default {
 		'@stylistic/declaration-colon-newline-after': null,
 		'@stylistic/number-leading-zero': 'always',
 		'@stylistic/number-no-trailing-zeros': true,
-		'@stylistic/selector-max-empty-lines': 8,
+		'@stylistic/selector-max-empty-lines': 0,
 		'@stylistic/selector-list-comma-newline-after': 'always',
 		'@stylistic/string-quotes': 'single',
 		'unit-allowed-list': [
@@ -176,6 +218,14 @@ export default {
 			'cqb',
 			'cqmin',
 			'cqmax',
+			'ch',
+			'lh',
+			'svh',
+			'lvh',
+			'dvb',
+			'dvi',
+			'vi',
+			'vb',
 		],
 		'value-keyword-case': null,
 		'value-no-vendor-prefix': true,
@@ -186,6 +236,7 @@ export default {
 			rules: {
 				'color-no-hex': null, // Disable this rule
 				'custom-property-empty-line-before': null, // Disable this rule
+				'plugin/stylelint-no-indistinguishable-colors': true,
 			},
 		},
 	],
