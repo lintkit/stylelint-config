@@ -14,9 +14,16 @@
   },
   "license": "ISC",
   "dependencies": {
+    "@stylistic/stylelint-plugin": "^3.0",
     "stylelint": "^16.8",
     "stylelint-config-standard-scss": "^13.1",
-    "stylelint-scss": "^6.3",
-    "@stylistic/stylelint-plugin": "^3.0"
+    "stylelint-scss": "^6.3"
+  },
+  "devDependencies": {
+    "@lintkit/eslint-config": "^2.2.0"
+  },
+  "scripts": {
+    "eslint:dry-run": "eslint . --color --cache --config node_modules/@lintkit/eslint-config/eslint.config.js --cache-location .cache/ --cache-strategy content",
+    "eslint:fix": "npm run eslint:dry-run -- --fix"
   }
 }
