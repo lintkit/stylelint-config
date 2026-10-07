@@ -7,7 +7,6 @@ export default {
 		'@stylistic/stylelint-plugin',
 		'@double-great/stylelint-a11y',
 		'stylelint-high-performance-animation',
-		'stylelint-no-indistinguishable-colors',
 		'stylelint-plugin-defensive-css',
 		'stylelint-plugin-logical-css',
 	],
@@ -230,7 +229,6 @@ export default {
 			rules: {
 				'color-no-hex': null, // Disable this rule
 				'custom-property-empty-line-before': null, // Disable this rule
-				'plugin/stylelint-no-indistinguishable-colors': true,
 			},
 		},
 	],

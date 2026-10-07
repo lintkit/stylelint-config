@@ -70,3 +70,4 @@ export default config;
 ## Upgrading to v2
 
 - Any references to `node_modules/@lintkit/stylelint-config/stylelint.config.mjs` should be corrected to `node_modules/@lintkit/stylelint-config/stylelint.config.js`
+- Requires Stylelint 17 and Node.js 20.19 or later
