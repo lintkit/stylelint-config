@@ -24,6 +24,23 @@ Add the scripts to your `package.json`
 }
 ```
 
+## GitLab CI
+
+The GitLab formatter is installed with this package. It prints the usual output in the job log and writes a [Code Quality](https://docs.gitlab.com/ci/testing/code_quality/) report, so problems show up in the merge request widget and the diff.
+
+```yaml
+stylelint:
+  script:
+    - npm ci
+    - npm run stylelint:dry-run -- --custom-formatter=@studiometa/stylelint-formatter-gitlab
+  artifacts:
+    when: always
+    reports:
+      codequality: gl-codequality.json
+```
+
+The report path is read from the `codequality` artifact in `.gitlab-ci.yml`. Set `STYLELINT_CODE_QUALITY_REPORT` to write it somewhere else.
+
 ## Local Override
 
 If you need to override some of the config (but keep LintKit defaults), place a file in the root of your project `stylelint.config.js` (or `stylelint.config.mjs` if required)
