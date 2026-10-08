@@ -166,6 +166,8 @@ export default {
 			{
 				ignoreValues: [
 					'/^currentcolor$/i',
+					// CSS system colours, used in forced-colors styles
+					'/^(accentcolor|accentcolortext|activetext|buttonborder|buttonface|buttontext|canvas|canvastext|field|fieldtext|graytext|highlight|highlighttext|linktext|mark|marktext|selecteditem|selecteditemtext|visitedtext)$/i',
 					'inherit',
 					'initial',
 					'transparent',
