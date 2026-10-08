@@ -1,6 +1,7 @@
 {
   "name": "@lintkit/stylelint-config",
   "version": "1.1.0",
+  "type": "module",
   "description": "LintKit: Stylelint Config",
   "author": "Mike Street <mike@liquidlight.co.uk>",
   "homepage": "https://github.com/lintkit/stylelint-config#readme",
@@ -13,9 +14,23 @@
   },
   "license": "ISC",
   "dependencies": {
-    "stylelint": "^16.8",
-    "stylelint-config-standard-scss": "^13.1",
-    "stylelint-scss": "^6.3",
-    "@stylistic/stylelint-plugin": "^3.0"
+    "@double-great/stylelint-a11y": "^3.5.4",
+    "@studiometa/stylelint-formatter-gitlab": "^1.1.1",
+    "@stylistic/stylelint-plugin": "^5.3.1",
+    "stylelint": "^17.16.0",
+    "stylelint-config-clean-order": "^10.0.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "stylelint-declaration-strict-value": "^1.12.1",
+    "stylelint-high-performance-animation": "^2.0.0",
+    "stylelint-plugin-defensive-css": "^2.9.7",
+    "stylelint-plugin-logical-css": "^2.1.0",
+    "stylelint-scss": "^7.3.0"
+  },
+  "devDependencies": {
+    "@lintkit/eslint-config": "^2.2.0"
+  },
+  "scripts": {
+    "eslint:dry-run": "eslint . --color --cache --config node_modules/@lintkit/eslint-config/eslint.config.js --cache-location .cache/ --cache-strategy content",
+    "eslint:fix": "npm run eslint:dry-run -- --fix"
   }
 }
