@@ -140,7 +140,7 @@ export default {
 		'media-feature-range-notation': null,
 		'no-descending-specificity': null,
 		'no-duplicate-selectors': true,
-		'no-unknown-animations': true,
+		'no-unknown-animations': null,
 		'plugin/no-low-performance-animation-properties': [
 			true,
 			{
