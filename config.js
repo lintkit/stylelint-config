@@ -165,7 +165,7 @@ export default {
 			],
 			{
 				ignoreValues: [
-					'currentcolor',
+					'/^currentcolor$/i',
 					'inherit',
 					'initial',
 					'transparent',
