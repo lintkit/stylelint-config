@@ -19,7 +19,7 @@ Add the scripts to your `package.json`
 
 ```json
 "scripts": {
-    "stylelint:dry-run": "stylelint app/**/*.scss --color --cache --config node_modules/@lintkit/stylelint-config/stylelint.config.js --ignore-path node_modules/@lintkit/stylelint-config/.stylelintignore --cache-location .cache/ --cache-strategy content",
+    "stylelint:dry-run": "stylelint app/**/*.scss --color --cache --config node_modules/@lintkit/stylelint-config/stylelint.config.js --cache-location .cache/ --cache-strategy content",
     "stylelint:fix": "npm run stylelint:dry-run -- --fix",
 }
 ```
@@ -67,7 +67,16 @@ config.overrides.push({
 export default config;
 ```
 
+Ignored files and folders (e.g. `vendor/`, `node_modules/`, `libs/`, `Resources/Public/`) are set with `ignoreFiles` in `config.js`. To ignore more, add absolute globs:
+
+```js
+import path from 'node:path';
+
+config.ignoreFiles.push(path.join(process.cwd(), '**/legacy/**'));
+```
+
 ## Upgrading to v2
 
 - Any references to `node_modules/@lintkit/stylelint-config/stylelint.config.mjs` should be corrected to `node_modules/@lintkit/stylelint-config/stylelint.config.js`
 - Requires Stylelint 17 and Node.js 20.19 or later
+- `.stylelintignore` has been removed; the ignored paths are now part of the config (`ignoreFiles`). Remove `--ignore-path node_modules/@lintkit/stylelint-config/.stylelintignore` from your scripts

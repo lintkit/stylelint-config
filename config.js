@@ -1,4 +1,33 @@
+import path from 'node:path';
+
+/**
+ * Files & folders to ignore - replaces the old .stylelintignore.
+ *
+ * Stylelint resolves relative `ignoreFiles` globs against the directory of the
+ * config file (which is inside `node_modules` when this package is used), so
+ * the globs are made absolute against the current working directory instead.
+ */
+const ignoreFiles = [
+	'**/libs/**',
+	'**/Library/**',
+	'**/Libraries/**',
+	'app/*/Resources/Public/**',
+	'app/*/*/Resources/Public/**',
+
+	'**/print.scss',
+	'**/_print.scss',
+	'**/_sprite.scss',
+
+	'**/.git/**',
+	'**/backup/**',
+	'**/html/**',
+	'**/vendor/**',
+	'**/node_modules/**',
+	'**/var/**',
+].map(glob => path.join(process.cwd(), glob).replaceAll('\\', '/'));
+
 export default {
+	ignoreFiles,
 	extends: [
 		'stylelint-config-standard-scss',
 		'stylelint-config-clean-order',
