@@ -53,6 +53,12 @@ export default {
 		],
 		'color-no-hex': true,
 		'color-no-invalid-hex': true,
+		'container-name-pattern': [
+			/^[a-z][a-zA-Z0-9]*$/,
+			{
+				message: (name) => `Expected container name "${name}" to be camelCase`
+			},
+		],
 		'custom-media-pattern': [
 			/^(until-[a-z][a-zA-Z0-9]*|from-[a-z][a-zA-Z0-9]*(-until-[a-z][a-zA-Z0-9]*)?)$/,
 			{
