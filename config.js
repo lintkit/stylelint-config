@@ -53,7 +53,12 @@ export default {
 		],
 		'color-no-hex': true,
 		'color-no-invalid-hex': true,
-		'custom-media-pattern': '^(from|to)-[a-z][a-zA-Z0-9]*$',
+		'custom-media-pattern': [
+			/^(until-[a-z][a-zA-Z0-9]*|from-[a-z][a-zA-Z0-9]*(-until-[a-z][a-zA-Z0-9]*)?)$/,
+			{
+				message: (name) => `Expected "${name}" to be --from-camelCase, --until-camelCase or --from-camelCase-until-camelCase` 
+			},
+		],
 		'custom-property-pattern': null,
 		'declaration-block-no-duplicate-properties': true,
 		'declaration-block-no-redundant-longhand-properties': [
