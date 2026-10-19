@@ -141,7 +141,7 @@ export default {
 		'no-descending-specificity': null,
 		'no-duplicate-selectors': true,
 		'no-unknown-animations': null,
-		// Clean order's order, plus @include after Sass variables and & rules before children
+		// Clean order's order, plus @extend/@include after Sass variables, @media after declarations and & rules before children
 		'order/order': [
 			[
 				{ type: 'at-rule', name: 'import' },
@@ -149,17 +149,17 @@ export default {
 				{ type: 'at-rule', name: 'use' },
 				'dollar-variables',
 				'at-variables',
+				{ type: 'at-rule', name: 'extend' },
 				{ type: 'at-rule', name: 'include' },
 				'custom-properties',
 				{ type: 'at-rule', name: 'custom-media' },
 				{ type: 'at-rule', name: 'function' },
 				{ type: 'at-rule', name: 'mixin' },
-				{ type: 'at-rule', name: 'extend' },
 				'declarations',
+				{ type: 'at-rule', name: 'media', hasBlock: true },
 				{ type: 'rule', selector: /^&::[\w-]+/u, hasBlock: true },
 				{ type: 'rule', selector: /^&/u, hasBlock: true },
 				'rules',
-				{ type: 'at-rule', name: 'media', hasBlock: true },
 			],
 			{ severity: 'warning' },
 		],
