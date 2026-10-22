@@ -113,6 +113,19 @@ export default {
 				'none',
 			],
 		},
+		// Font sizes in rem or %, plus fluid units for clamp()
+		'declaration-property-unit-allowed-list': {
+			'font-size': [
+				'%',
+				'rem',
+				'vi',
+				'cqi',
+				'cqmin',
+				'cqmax',
+				'vmin',
+				'vmax',
+			],
+		},
 		'defensive-css/require-dynamic-viewport-height': [
 			true,
 			{
