@@ -78,13 +78,13 @@ export default {
 		'container-name-pattern': [
 			/^[a-z][a-zA-Z0-9]*$/,
 			{
-				message: (name) => `Expected container name "${name}" to be camelCase`
+				message: name => `Expected container name "${name}" to be camelCase`,
 			},
 		],
 		'custom-media-pattern': [
 			/^(until-[a-z][a-zA-Z0-9]*|from-[a-z][a-zA-Z0-9]*(-until-[a-z][a-zA-Z0-9]*)?)$/,
 			{
-				message: (name) => `Expected "${name}" to be --from-camelCase, --until-camelCase or --from-camelCase-until-camelCase` 
+				message: name => `Expected "${name}" to be --from-camelCase, --until-camelCase or --from-camelCase-until-camelCase`,
 			},
 		],
 		'custom-property-pattern': null,
