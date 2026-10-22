@@ -1,4 +1,26 @@
+import path from 'node:path';
+
+// Absolute globs, so they match from the project root rather than this package's folder
+const ignoreFiles = [
+	'**/libs/**',
+	'**/Library/**',
+	'**/Libraries/**',
+	'app/*/Resources/Public/**',
+	'app/*/*/Resources/Public/**',
+	'**/print.scss',
+	'**/_print.scss',
+	'**/_sprite.scss',
+	'**/_sprite-wrapper.scss',
+	'**/.git/**',
+	'**/backup/**',
+	'**/html/**',
+	'**/vendor/**',
+	'**/node_modules/**',
+	'**/var/**',
+].map(glob => path.join(process.cwd(), glob));
+
 export default {
+	ignoreFiles,
 	extends: [
 		'stylelint-config-standard-scss',
 		'stylelint-config-clean-order',
